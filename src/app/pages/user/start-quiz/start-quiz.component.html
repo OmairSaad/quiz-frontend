@@ -1,0 +1,130 @@
+@if (!isSubmitted) {
+<div class="progress-side-container">
+    <!-- Progress Spinner -->
+    <mat-card class="progress-spinner !text-center">
+        <mat-card-header class="flex items-center justify-center">
+            <p class="font-bold">Progress</p>
+            <mat-progress-spinner class="example-margin" [value]="progressvalue"  strokeWidth="10" diameter="50" [color]="(hour==0 && mintue==0 && second<30)?'warn':'primary'"></mat-progress-spinner>
+        </mat-card-header>
+      
+    </mat-card>
+    <p class="font-mono" [style.color]="(hour==0 && mintue==0 && second<30)?'red':''"><span [hidden]="!hour" class="m2">Hour:{{hour}}</span><span [hidden]="!mintue" class="m-2">Miute:{{mintue}}</span><span >Second:{{second}}</span></p>
+    <!-- Time Remaining -->
+</div>
+
+<div class="container mx-auto p-6">
+ 
+    <!-- Question Card -->
+    @for (q of questions; track $index) {
+    <mat-card class="max-w-3xl mx-auto font-mono bg-white shadow-md rounded-lg p-6 m-2">
+        <div class="mb-4">
+            <h5 class="text-lg font-bold text-gray-900 mb-2">{{($index + 1) }}.) <span [innerHTML]="q.content"></span>
+            </h5>
+        </div>
+
+        <!-- Options Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Option 1 -->
+            <div
+                class="p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer transition-all">
+                <label class="block text-gray-700">
+                    <b>A):</b>{{q.option1}}
+                </label>
+            </div>
+
+            <!-- Option 2 -->
+            <div
+                class="p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer transition-all">
+                <label class="block text-gray-700">
+                    <b>B):</b>{{q.option2}}
+                </label>
+            </div>
+
+            <!-- Option 3 -->
+            <div
+                class="p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer transition-all">
+                <label class="block text-gray-700 break-words">
+                    <b>C):</b>{{q.option3}}
+                </label>
+            </div>
+
+            <!-- Option 4 -->
+            <div
+                class="p-4 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 cursor-pointer transition-all">
+                <label class="block text-gray-700 break-words">
+                    <b>D):</b>{{q.option4}}
+                </label>
+            </div>
+        </div>
+
+        <mat-radio-group [(ngModel)]="q.givenanswer">
+            <div class="grid grid-cols-2  mt-2">
+                <mat-radio-button class="mr-2" [value]="q.option1">A</mat-radio-button>
+                <mat-radio-button class="mr-2" [value]="q.option2">B</mat-radio-button>
+                <mat-radio-button class="mr-2" [value]="q.option3">C</mat-radio-button>
+                <mat-radio-button class="mr-2" [value]="q.option4">D</mat-radio-button>
+            </div>
+        </mat-radio-group>
+    </mat-card>
+    }
+    <div class="mt-6 text-center">
+        <button mat-flat-button color="accent" (click)="send()">Submit Quiz</button>
+    </div>
+</div>
+}
+
+@if (isSubmitted) {
+<!-- Result Section (visible after quiz submission) -->
+<div class="container mx-auto p-6">
+    <mat-card class="quiz-results-card">
+        <mat-card-header class="flex justify-center mb-4">
+            <mat-card-title class=" text-2xl !font-bold">Quiz Results</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <!-- User Info and Quiz Name -->
+            <div class="result-info text-center mb-6">
+                <p class="text-gray-600">Quiz Name: <span class="font-semibold">{{quiz.title}}</span></p>
+                <p class="text-gray-600">Attempted by: <span class="font-semibold">{{loginser.getUser()}}</span></p>
+                <p class="text-gray-600">Attempt Time: <span class="font-semibold">{{formatDate(evaluatedResult.date)}}</span></p>
+            </div>
+
+            <!-- Score Summary -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <!-- Correct Answers -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-green-500 text-3xl font-bold">{{evaluatedResult.correctAnswer}}</h4>
+                        <p class="text-gray-600">Correct Answers</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- Wrong Answers -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-red-500 text-3xl font-bold">{{evaluatedResult.incorrectAnswer}}</h4>
+                        <p class="text-gray-600">Wrong Answers</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- Attempted Questions -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-blue-500 text-3xl font-bold">{{evaluatedResult.attemptQuestion}}</h4>
+                        <p class="text-gray-600">Attempted Questions</p>
+                    </mat-card-content>
+                </mat-card>
+
+                
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-purple-500 text-3xl font-bold">{{totlaMarks}}</h4>
+                        <p class="text-gray-600">Total Marks</p>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+}

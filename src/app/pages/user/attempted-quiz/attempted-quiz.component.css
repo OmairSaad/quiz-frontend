@@ -1,0 +1,42 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center cards in the container */
+  }
+  
+  .quiz-card {
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Internal padding */
+    width: 300px; /* Fixed width for the card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.2s; /* Animation for hover effect */
+  }
+  
+  .quiz-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
+  .card-header h3 {
+    margin: 0; /* Remove margin for h3 */
+  }
+  
+  .card-footer {
+    text-align: right; /* Align footer text to the right */
+  }
+  
+  .view-results-btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 16px; /* Padding for the button */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  .view-results-btn:hover {
+    background-color: #0056b3; /* Darken button on hover */
+  }
+  

@@ -1,0 +1,35 @@
+
+.b{
+    border: 1px solid red;
+}
+/* Styling for the table */
+.custom-table {
+    border-collapse: collapse; /* Ensures that borders don't overlap */
+    /* width: 100%; Optional: Make the table full width */
+  }
+  
+  /* Add borders to each cell */
+  .custom-table th, .custom-table td {
+    border: 1px solid #ccc; /* Border color and thickness */
+    padding: 8px; /* Add some padding for spacing */
+    text-align: center; /* Aligns text to the center of the cell */
+  }
+  
+  /* Optional: Add rounded corners to the entire table */
+  .custom-table {
+    border-radius: 12px;
+    overflow: hidden; /* Ensures content stays inside rounded corners */
+  }
+  
+  /* Add background color for the header */
+  .custom-table th {
+    background-color: #f5f5f5;
+    font-weight: 500;
+  }
+  
+ img{
+    border: 2px solid #2563eb;
+    border-radius: 50%;
+    padding: .8px;
+ }
+  

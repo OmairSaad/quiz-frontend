@@ -1,0 +1,34 @@
+<div class="container mx-auto pb-4" [hidden]="!result.length">
+
+  <!-- Sorting Dropdown -->
+  <div class="m-4 flex justify-center">
+    <label for="sortOption" class="mr-2 text-gray-600">Sort by:</label>
+    <select id="sortOption" class="border rounded p-2" (change)="filter($event)">
+      <option value="select">Select</option>
+      <option value="date">Date</option>
+      <option value="maxmarks">Max Marks</option>
+    </select>
+  </div>
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    @for (res of result; track $index) {
+    <mat-card class="bg-white shadow-lg rounded-lg p-4">
+      <mat-card-header>
+        <mat-card-title class="text-lg font-bold">{{ res.quiz.title }}</mat-card-title>
+        <mat-card-subtitle class="text-md text-gray-600">{{ res.quiz.category.title }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="mt text-gray-800">{{ res.quiz.description }}</p>
+        <p>{{formatDate(res.date)}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="mt-4 bg-blue-500 text-white rounded-md px-4 py-2"
+          [routerLink]="'/user-dashboard/quiz/attempted-quiz/'+res.attemptId">
+          View Details
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </div>
+</div>

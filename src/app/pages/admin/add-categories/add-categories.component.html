@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-content class="!flex !justify-center">
+      <form  class="sm:w-1/2 w-full" (ngSubmit)="add()">
+        <!-- Set the input to span 6 out of 12 columns -->
+        <mat-form-field class="w-full" appearance="outline">
+          <input type="text" name="title" matInput placeholder="Enter here" class="w-full" [(ngModel)]="category.title">
+        </mat-form-field>
+
+        <mat-form-field class="w-full" appearance="outline">
+            <textarea type="text" name="description" [(ngModel)]="category.description" matInput placeholder="Enter here" class="w-full" rows="10" ></textarea>
+        </mat-form-field>
+        <div class="w-full text-center">
+          <button mat-flat-button>Add</button>
+        </div>
+      </form>
+    </mat-card-content>
+</mat-card>
+
+

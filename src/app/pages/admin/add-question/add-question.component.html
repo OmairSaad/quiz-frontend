@@ -1,0 +1,60 @@
+<mat-card class="p-4">
+    <h6 class="text-2xl font-semibold mb-4 text-center">Add Question in <span class="text-pink-600 font-medium">{{title}}</span></h6>
+    <form class="w-full" [formGroup]="question" (ngSubmit)="send()">
+        <div class="mb-4">
+            <!-- <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Question</mat-label>
+                <textarea matInput formControlName="content"></textarea>
+            </mat-form-field> -->
+            <angular-editor formControlName="content" [config]="editorConfig" placeholder="Enter question" class="text-black"></angular-editor>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Option 1</mat-label>
+                    <input matInput formControlName="option1"/>
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Option 2</mat-label>
+                    <input matInput formControlName="option2"/>
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Option 3</mat-label>
+                    <input matInput formControlName="option3" />
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Option 4</mat-label>
+                    <input matInput formControlName="option4" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Correct Answer</mat-label>
+                <mat-select  formControlName="answer">
+                    @for (op of getOptions(); track $index) {
+                    <mat-option [value]="op">{{op}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="text-center">
+            <button mat-flat-button color="primary"  type="submit" [disabled]="question.invalid">Add Question</button>
+        </div>
+    </form>
+<mat-card>
+
+    <!-- app.component.html -->
+
+<!-- app.component.html -->
+
+

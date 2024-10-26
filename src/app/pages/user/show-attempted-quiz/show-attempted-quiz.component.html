@@ -1,0 +1,61 @@
+<div class="container mx-auto p-6">
+    
+    <mat-card class="quiz-results-card">
+        <mat-card-header class="flex justify-center mb-4">
+            <mat-card-title class=" text-2xl !font-bold">Quiz Results</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <!-- User Info and Quiz Name -->
+            <div class="result-info text-center mb-6">
+                @if (result.quiz){
+                <p class="text-gray-600">Quiz Name: <span class="font-semibold">{{result.quiz.title}}</span></p>
+                }
+                @if(result.user){
+                <p class="text-gray-600">Attempted by: <span class="font-semibold">{{result.user.username}}</span></p>
+                }
+                @if (result.date) {
+                <p class="text-gray-600">Attempt Time: <span class="font-semibold">{{formatDate(result.date)}}</span></p>
+                }
+            </div>
+
+            <!-- Score Summary -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <!-- Correct Answers -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-green-500 text-3xl font-bold">{{result.correctAnswer}}</h4>
+                        <p class="text-gray-600">Correct Answers</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- Wrong Answers -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-red-500 text-3xl font-bold">{{result.incorrectAnswer}}</h4>
+                        <p class="text-gray-600">Wrong Answers</p>
+                    </mat-card-content>
+                </mat-card>
+
+                <!-- Attempted Questions -->
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        <h4 class="text-blue-500 text-3xl font-bold">{{result.attemptQuestion}}</h4>
+                        <p class="text-gray-600">Attempted Questions</p>
+                    </mat-card-content>
+                </mat-card>
+
+                
+                <mat-card class="summary-card">
+                    <mat-card-content class="text-center">
+                        @if (result.quiz) {
+                        <h4 class="text-purple-500 text-3xl font-bold">{{result.totalMarks}}</h4>
+                        }
+                        <p class="text-gray-600">Total Marks</p>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,35 @@
+@if (quizzes.length==0) {
+  <div class="h flex justify-center items-center">
+  <mat-card class="no-quizzes-card">
+    <mat-card-content>
+      <div class="no-quizzes-icon">
+        <mat-icon class="empty-icon" color="warn">hourglass_empty</mat-icon>
+      </div>
+      <h2 class="no-quizzes-title">Oops! No Quizzes Available</h2>
+      <p class="no-quizzes-subtitle">It looks like there are no quizzes in this category right now. Check back later!</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+    <!-- Column 1 -->
+     @for (quiz of quizzes; track $index) {
+      <mat-card class="example-card" appearance="outlined" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="text-pink-500 !font-medium">{{quiz.title}}</mat-card-title>
+          <mat-card-subtitle>{{quiz.category.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="truncate">{{quiz.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button class="mx-2" [routerLink]="'/user-dashboard/about-quiz/'+quiz.quizId">View</button>
+          <button mat-button>Q:{{quiz.numberOfQuestions}}</button>
+          <button mat-button>M.M:{{quiz.maxMarks}}</button>
+        </mat-card-actions>
+      </mat-card>      
+  }
+    
+  </div>
+  

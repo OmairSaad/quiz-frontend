@@ -1,0 +1,66 @@
+.quiz-instructions-card {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .text-gray-800 {
+    color: #37474f;
+  }
+  
+  .text-gray-600 {
+    color: #757575;
+  }
+  
+  .text-gray-700 {
+    color: #424242;
+  }
+  
+  .text-gray-500 {
+    color: #616161;
+  }
+  
+  .text-red-600 {
+    color: #e53935;
+  }
+  
+  .space-y-2 > * + * {
+    margin-top: 0.5rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  

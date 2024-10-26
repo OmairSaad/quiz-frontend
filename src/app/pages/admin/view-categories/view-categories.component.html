@@ -1,0 +1,25 @@
+@if (Categories!=null) {
+<mat-card>
+<div class="flex flex-col space-y-4">
+  <mat-action-list>
+  @for (category of Categories; track $index) {
+    <mat-list-item>
+    <div class="flex justify-between ">
+      <!-- Category Container -->
+      <div class="flex items-center justify-center">
+        <mat-icon class=" mb-4">folder</mat-icon>
+        <p class="px-2 font-medium">{{ category.title }}</p>
+      </div>
+      <!-- Category Description -->
+      <p>{{ category.description }}</p>
+      
+    </div>
+  </mat-list-item>
+  }
+</mat-action-list>
+  </div>
+  <div class="text-center my-2">
+    <button routerLink="/admin/add-category" mat-raised-button color="primary" >Add New Category</button>
+  </div>
+</mat-card>
+}

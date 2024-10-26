@@ -1,0 +1,62 @@
+<!-- registration-form.component.html -->
+<div class="flex justify-center items-center bg-white form_container" [class]="isSubmitting ? 'blur' : 'unblur'">
+  <div class="w-full max-w-md shadow rounded-lg p-4 relative">
+    <div class="w-full text-center flex justify-center items-center">
+      <img src="https://www.examzo.com/assets/icons/online.png" alt="not loaded" style="width: 60px;">
+    </div>
+    <h6 class="text-2xl font-bold text-center text-gray-800 mb-4">Student Registration</h6>
+    <form class="space-y-4" [formGroup]="regData" (ngSubmit)="save(regData)">
+      <!-- Username -->
+      <div>
+        <input type="text" id="username" name="username" placeholder="Username"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          formControlName="username" [class.error]="f.username.touched && f.username.invalid">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <input type="password" id="password" name="password" placeholder="Password"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          formControlName="password" [class.error]="f.password.touched && f.password.invalid">
+      </div>
+
+      <!-- First Name -->
+      <div>
+        <input type="text" id="first-name" name="first-name" placeholder="First Name"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          formControlName="firstname" [class.error]="f.firstname.touched && f.firstname.invalid">
+      </div>
+
+      <!-- Last Name -->
+      <div>
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          formControlName="lastname" [class.error]="f.lastname.touched && f.lastname.invalid">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <input type="email" id="email" name="email" placeholder="Email"
+          class="mt-1 danger block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          formControlName="email" [class.error]="f.email.touched && f.email.invalid">
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+
+        <input type="number" id="phone" name="phone" placeholder="Phone Number"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          [class.error]="f.phone.touched && f.phone.invalid" formControlName="phone">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="pt-3">
+        <button type="submit"
+          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300    disabled:opacity-50 disabled:cursor-not-allowed"
+          [disabled]="regData.invalid">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

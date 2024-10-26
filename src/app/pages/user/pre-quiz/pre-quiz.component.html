@@ -1,0 +1,42 @@
+<mat-card class="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6 my-10">
+    <div class="mb-6">
+        <h5 class="text-3xl font-bold text-gray-800">{{ quiz.title }}</h5>
+        <p class="text-gray-500 text-lg">{{ quiz.description }}</p>
+    </div>
+
+    <hr class="my-4 border-gray-300" />
+
+    <div>
+        <h2 class="text-2xl font-semibold text-red-600 mb-4">Important Instructions</h2>
+        <ul class="list-disc list-inside space-y-3 text-gray-700">
+            <li>This quiz is for practice and evaluation purposes.</li>
+            <li>You have <strong>{{quiz.numberOfQuestions*2}} minutes</strong> to complete and submit the quiz. The timer starts once you
+                press "Start Quiz".</li>
+            <li>You can attempt the quiz <strong>as many times as you want</strong>.</li>
+            <li>There are <strong>{{ quiz.numberOfQuestions }} questions</strong> in this quiz, covering various topics.
+            </li>
+            <li>Each question carries <strong>{{quiz.maxMarks / quiz.numberOfQuestions}}</strong>. No negative marking for incorrect answers.</li>
+            <li>All questions are of <strong>Multiple-Choice Questions (MCQ)</strong> type, with only one correct
+                answer.</li>
+            <li><strong>Submit your answers</strong> before the timer runs out. The quiz will auto-submit after the time
+                expires.</li>
+            <li>You can review and change your answers before submitting.</li>
+            <li>After submission, you will receive your score and the correct answers.</li>
+        </ul>
+
+        <p class="text-sm text-gray-500 mt-6 italic">
+            Make sure to review all your answers before submitting. Good luck, and give it your best shot!
+        </p>
+    </div>
+
+    <div class="flex justify-between mt-8">
+        <button mat-flat-button class="bg-blue-600 py-2 px-6" (click)="startQuiz()">
+            Start Quiz
+        </button>
+        @if (quiz.category) {  
+        <button mat-flat-button color="warn" [routerLink]="'/user-dashboard/'+quiz.category.cid">
+            Cancel
+        </button>
+        }
+    </div>
+</mat-card>

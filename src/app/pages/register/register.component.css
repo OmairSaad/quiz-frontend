@@ -1,0 +1,27 @@
+.form_container{
+    height: calc(100vh -  64px);
+}
+.error{
+    border: 1px solid red;
+}
+.error{
+    outline: 1px solid red;
+}
+
+/* styles.css or component CSS file */
+.blur {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
+  }
+  
+  .unblur {
+    filter: blur(0);
+    transition: filter 0.3s ease;
+  }
+
+  .alert{
+    top: 30px;
+    left: 0;
+    
+}
+  
